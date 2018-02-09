@@ -1,0 +1,22 @@
+#gameboardWrapper {
+  background-image: url(/jeopardy_background.png);  
+  display: inline-block;
+  padding: 10px;
+}
+
+#border {
+  background-color: grey;
+  display: inline-block;
+  min-height: 100%;
+}
+#gameboard {
+  background-color: black;
+
+}
+
+.gameboard_visible {
+  display: inline-block;
+}
+.gameboard_hidden {
+  display: none;
+}

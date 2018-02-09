@@ -1,0 +1,50 @@
+.catcol {
+  display: inline-block; 
+  /*related to size setting in .catcolumnlist*/
+  font-size: 16px;
+}
+
+.category {
+  font-family: monospace;
+  font-size: calc(1.5vw + 1.0vh);
+  font-weight: 900;
+  color: white;
+  background-color: blue;
+  min-height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+}
+
+.questionValue {
+  min-height:50px;
+  color: #ffff00;
+  font-weight: 900;
+  font-size: 225%;
+  text-align: center;
+  background-color: blue;
+  border: 3px solid black;
+}
+
+.questionlist  {
+  min-height: 100%;
+  display:inline-table;
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+  display: inline-block;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.questionlist li {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 20px 0px 20px;
+  border-top: 5px;
+  border-right: 5px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  list-style-type: none; 
+  line-height: 50px; 
+}

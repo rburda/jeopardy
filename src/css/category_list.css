@@ -1,0 +1,9 @@
+.catcolumnlist {
+  min-height:100%;
+  padding: 0px;
+  margin: 0px;
+/*
+  gets rid of mystery space between cols; see https://stackoverflow.com/questions/14958606/css-html-horizonal-list-remove-this-mystery-gap-between-list-items-see-pic
+*/  
+  font-size: 0; 
+}

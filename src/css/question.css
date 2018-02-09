@@ -1,0 +1,52 @@
+.question {
+  min-height:50px;
+  color: #ffff00;
+  font-weight: 900;
+  font-size: 225%;
+  text-align: center;
+  background-color: blue;
+  border: 3px solid black;
+}
+
+.questionCorrect {
+  min-height:50px;
+  color: #ffff00;
+  font-weight: 900;
+  font-size: 225%;
+  text-align: center;
+  background-color: blue;
+  border: 15px solid green;
+}
+
+.questionIncorrect {
+  min-height:50px;
+  color: #ffff00;
+  font-weight: 900;
+  font-size: 225%;
+  text-align: center;
+  background-color: blue;
+  border: 15px solid red;
+}
+
+#answerWrapper {
+  height: 150px;
+  line-height: 75px;
+}
+
+#answerWrapper span {
+  line-height: 75px;
+  vertical-align: middle;
+}
+
+#answerText {
+    width: 45%;
+    height: 150px;
+    padding: 12px 20px;
+    font-size: 100%;
+    color: purple;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+    border: 6px solid purple;
+    border-radius: 4px;
+    resize: none;
+}
