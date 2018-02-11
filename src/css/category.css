@@ -1,50 +1,47 @@
 .catcol {
   display: inline-block; 
   /*related to size setting in .catcolumnlist*/
-  font-size: 16px;
+  font-size: calc(1vw);
+  max-width: 20%;
 }
 
 .category {
   font-family: monospace;
-  font-size: calc(1.5vw + 1.0vh);
+  font-size: calc(2.2vw + .3vh);
   font-weight: 900;
   color: white;
-  background-color: blue;
-  min-height: 200px;
+  background-color: blue; 
   text-align: center;
-  vertical-align: middle;
   align-items: center;
-  display: flex;
+  min-height: 30vh;
+  max-height: 30vh;
 }
 
-.questionValue {
-  min-height:50px;
+.questionValue {  
   color: #ffff00;
   font-weight: 900;
-  font-size: 225%;
+  font-size: calc(3vw + .5vh);
   text-align: center;
   background-color: blue;
-  border: 3px solid black;
+  border: 2% solid black;
 }
 
 .questionlist  {
-  min-height: 100%;
-  display:inline-table;
   padding: 0px 0px 0px 0px;
   margin: 0px;
-  display: inline-block;
-  min-width: 200px;
-  max-width: 200px;
+  display: inline-table;
+  min-width: 18vw;
 }
 
 .questionlist li {
   margin: 0px 0px 0px 0px;
-  padding: 0px 20px 0px 20px;
-  border-top: 5px;
-  border-right: 5px;
+  padding: 0px 2% 0px 2%;
+  border-top: 2%;
+  border-right: 2%;
   border-style: solid;
   border-color: black;
   border-radius: 10px;
   list-style-type: none; 
-  line-height: 50px; 
+  line-height: calc(7vh); 
+  min-width:15vw;
 }

@@ -12,8 +12,13 @@ export default class AnswerBox extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             {this.props.answerer.name}
-            <textarea id="answerText" onChange={
-              (e) => {this.props.onAnswerUpdated(e.target.value)}} />
+            <textarea id="answerText" onKeyUp={
+              (e) => {
+                if(e.keyCode == 13 && e.shiftKey == false) {
+                  this.handleSubmit(e);
+                } else {
+                  this.props.onAnswerUpdated(e.target.value);
+                }}} />
           </label>
           <input type="submit" value="Submit" />
         </form>

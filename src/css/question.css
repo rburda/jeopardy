@@ -1,3 +1,9 @@
+.questionWrapper {
+  background: grey;
+  width: 100vw;
+  height: 100vh;
+}
+
 .question {
   min-height:50px;
   color: #ffff00;
@@ -5,7 +11,14 @@
   font-size: 225%;
   text-align: center;
   background-color: blue;
-  border: 3px solid black;
+  border: 8px solid white;
+
+  border-radius: 25px;
+  background: blue;
+  margin: 0 10% 0px 10%; 
+  padding-top: 10%;
+  width: 80%;
+  height: 50%; 
 }
 
 .questionCorrect {
@@ -14,8 +27,14 @@
   font-weight: 900;
   font-size: 225%;
   text-align: center;
-  background-color: blue;
   border: 15px solid green;
+
+  border-radius: 25px;
+  background: blue;
+  margin: 0 10% 0px 10%; 
+  padding-top: 10%;
+  width: 80%;
+  height: 50%;   
 }
 
 .questionIncorrect {
@@ -24,23 +43,33 @@
   font-weight: 900;
   font-size: 225%;
   text-align: center;
-  background-color: blue;
   border: 15px solid red;
+
+  border-radius: 25px;
+  background: blue;
+  margin: 0 10% 0px 10%; 
+  padding-top: 10%;
+  width: 80%;
+  height: 50%;   
+}
+
+.timerHidden {
+  display: none;
 }
 
 #answerWrapper {
-  height: 150px;
-  line-height: 75px;
+  height: 10%;
+  line-height: 30px;
 }
 
 #answerWrapper span {
-  line-height: 75px;
+  line-height: 30px;
   vertical-align: middle;
 }
 
 #answerText {
     width: 45%;
-    height: 150px;
+    height: 50%;
     padding: 12px 20px;
     font-size: 100%;
     color: purple;

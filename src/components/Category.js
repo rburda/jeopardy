@@ -12,7 +12,7 @@ export default class Category extends Component {
           {cat.questions.map(
             (q,i) => {
               if (q.used) {
-                return <li className="questionValue"></li>
+                return <li className="questionValue">&nbsp;</li>
               } else {
                 return <li className="questionValue" onClick={() => { onSelectQuestion(cat.id, q.id) }}>${q.value}</li>
               }

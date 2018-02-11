@@ -107,7 +107,8 @@ export default class Game extends React.Component {
     const olympicCategories = 
     [1732,14072,14754,15723,16262,16786,17019,17286,17455,2000,5914,8403,3559,
      4531,5150,5178,8407,7716,7879,18366,14151];
-
+    
+    //const olympicCategories = [15929];
      const idx = Math.floor(Math.random() * (olympicCategories.length-1));
      return olympicCategories[idx];
   }
@@ -121,6 +122,9 @@ export default class Game extends React.Component {
     }
   }
 
+a
+b
+c
 
   setupBoard() {
     console.log(this.state.rawCategories);

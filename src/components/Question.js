@@ -8,7 +8,7 @@ export default class Question extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {timeLeft:5, playersAnswered:[], prevAnswer:undefined};
+    this.state = {timeLeft:10, playersAnswered:[], prevAnswer:undefined};
     this.handleKeyPress =  this.handleKeyPress.bind(this);
     this.handleAnswerSubmitted = this.handleAnswerSubmitted.bind(this);
     this.handleAnswerUpdated = this.handleAnswerUpdated.bind(this);
@@ -18,19 +18,25 @@ export default class Question extends Component {
     const questionClass = (this.state.prevAnswer ? 
       "questionCorrect" : 
       (this.state.prevAnswer !== undefined ? "questionIncorrect" : "question"));
+
+    const timerClass = (this.state.prevAnswer !== undefined ? "timerHidden" : "");
+    const answerClass = (this.allPlayersAnswered() ? "" : "timerHidden");
     return (
-      <div className={questionClass}>
-        {questionClass === 'questionCorrect' ? 'Correct!!!': ''}
-        {questionClass === 'questionIncorrect' ? 'Sorry!!!': ''}
-        <div>Time Left: {this.state.timeLeft}</div>
-        <p>
-          {this.props.question.text}
-        </p>
-        {this.state.answerer ? 
-          <AnswerBox 
-          answerer={this.state.answerer}
-          onAnswerUpdated={this.handleAnswerUpdated} 
-          onAnswerSubmitted={this.handleAnswerSubmitted}/> : ""}
+      <div className="questionWrapper">
+        <div className={questionClass}>
+          {questionClass === 'questionCorrect' ? 'Correct!!!': ''}
+          {questionClass === 'questionIncorrect' ? 'Sorry!!!': ''}
+          <div id="timer" className={timerClass}>Time Left: {this.state.timeLeft}</div>
+          <div id="answer" className={answerClass}>The answer was: {this.props.question.answer}</div>
+          <p>
+            {this.props.question.text}
+          </p>
+          {this.state.answerer ? 
+            <AnswerBox 
+            answerer={this.state.answerer}
+            onAnswerUpdated={this.handleAnswerUpdated} 
+            onAnswerSubmitted={this.handleAnswerSubmitted}/> : ""}
+        </div>
       </div>
     );
   }
@@ -89,26 +95,22 @@ export default class Question extends Component {
   }
 
   handleAnswerSubmitted() {
+    const playersAnswered = Array.from(this.state.playersAnswered);
+    playersAnswered.push(this.state.answerer.id);
+
     if (this.props.question.answer === this.state.submittedAnswer) {
-      this.finishAnswerID = setInterval(() => this.asyncCorrect(), 2000, 1);
-      this.setState({prevAnswer: true});
+      this.finishAnswerID = setInterval(() => this.asyncCorrect(), 4000, 1);
+      this.setState({prevAnswer: true, playersAnswered:playersAnswered});
     } else {
-      this.finishAnswerID = setInterval(() => this.asyncIncorrect(), 2000, 1);
-      this.setState({prevAnswer: false});
+      this.finishAnswerID = setInterval(() => this.asyncIncorrect(), 4000, 1);
+      this.setState({prevAnswer: false, playersAnswered:playersAnswered});
     }
   }
 
   asyncIncorrect() {
     this.props.onAnswered(this.state.answerer, false, this.calculateQuestionValue());
-    this.setupKeypress();
-
-    const playersAnswered = Array.from(this.state.playersAnswered);
-    playersAnswered.push(this.state.answerer.id);
-    if (playersAnswered.length === this.props.players.length) {
+    if (this.allPlayersAnswered()) {
       this.props.onComplete();
-    } else {
-      this.setState(
-        { answerer: undefined, timeLeft: 5, playersAnswered: playersAnswered });        
     } 
     this.asyncFinish();
   }
@@ -120,7 +122,8 @@ export default class Question extends Component {
   }
   asyncFinish() {
     clearInterval(this.finishAnswerID);
-    this.setState({prevAnswer: undefined});
+    this.setState({answerer: undefined, prevAnswer: undefined, timeLeft:10});
+    this.setupKeypress();
   }
 
   calculateQuestionValue() {
@@ -131,5 +134,9 @@ export default class Question extends Component {
       qValue = this.props.question.value;
     }
     return qValue;
+  }
+
+  allPlayersAnswered() {
+    return this.state.playersAnswered.length === this.props.players.length;
   }
 };

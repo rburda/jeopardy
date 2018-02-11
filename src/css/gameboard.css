@@ -2,12 +2,13 @@
   background-image: url(/jeopardy_background.png);  
   display: inline-block;
   padding: 10px;
+  min-width: 92vw;
+  max-height: 80vh;
 }
 
 #border {
   background-color: grey;
   display: inline-block;
-  min-height: 100%;
 }
 #gameboard {
   background-color: black;
